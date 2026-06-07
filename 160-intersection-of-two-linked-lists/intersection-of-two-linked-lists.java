@@ -10,36 +10,18 @@
  * }
  */
 public class Solution {
-    public ListNode collision(ListNode sh,ListNode bh,int d){
-        int i = 0;
-        while(i < d){
-            bh = bh.next;
-            i++;
-        }
-        while(sh != bh){
-            sh = sh.next;
-            bh = bh.next;
-        }
-        return sh;
-    }
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        int s1 = 0,s2 = 0;
         ListNode t1 = headA;
         ListNode t2 = headB;
-        while(t1 != null){
-            s1++;
+        while(t1 != t2){
             t1 = t1.next;
-        }
-        while(t2 != null){
-            s2++;
             t2 = t2.next;
+            if(t1 == t2){
+                return t1;
+            }
+            if(t1 == null) t1 = headB;
+            if(t2 == null) t2 = headA;
         }
-        int diff = Math.abs(s1 - s2);
-        if(s1 > s2){
-            return collision(headB,headA,diff);
-        }
-        else{
-            return collision(headA,headB,diff);
-        }
+        return t1;
     }
 }
