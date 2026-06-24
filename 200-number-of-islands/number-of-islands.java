@@ -8,8 +8,8 @@ class Solution {
             for(int j = 0;j < c;j++){
                 if(grid[i][j] == '1'){
                     islands++;
-                }
                 dfs(grid,i,j);
+                }
             }
         }
         return islands;
