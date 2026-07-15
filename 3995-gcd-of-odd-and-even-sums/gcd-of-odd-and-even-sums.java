@@ -1,26 +1,8 @@
 class Solution {
-    public int gcd(int a,int b){
-        if(b == 0){
-            return a;
-        }
-        return gcd(b,a%b);
-    }
+//   first n odd numbers: 2(n) - 1; sum of n odd : n ^ 2;
+// first n even numbers : 2(n); sum = n( n + 1);
+// gcd ( n ^ 2,n(n + 1)); == n gcd(n,n + 1); == n * 1 == n;
     public int gcdOfOddEvenSums(int n) {
-        int evenS = 0;
-        int oddS = 0;
-        int num = 1;
-        int temp = n * 2;
-        while(temp > 0){
-            if(num % 2 == 0){
-                evenS += num;
-                num++;
-            }
-            else{
-                oddS += num;
-                num++;
-            }
-            temp--;
-        }
-      return  gcd(evenS,oddS);
+        return n;
     }
 }
