@@ -1,14 +1,14 @@
 class Solution {
-        String[] options = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-         List<String> ans;
-         StringBuilder sb;
+       static String[] options = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        static List<String> ans;
+        static StringBuilder sb;
     public List<String> letterCombinations(String digits) {
         ans = new ArrayList<>();
         sb = new StringBuilder();
        helper(digits,0);
        return ans;
     }
-    public void helper(String digits,int i){
+    public static void helper(String digits,int i){
         if(i == digits.length()){
             ans.add(sb.toString());
             return;
