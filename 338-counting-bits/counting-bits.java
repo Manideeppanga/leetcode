@@ -12,8 +12,7 @@ class Solution {
         int[] ans = new int[n + 1];
         ans[0] = 0;
         ans[1] = 1;
-        ans[2] = 1;
-        for(int i = 3;i < ans.length;i++){
+        for(int i = 2;i < ans.length;i++){
             int last = Integer.highestOneBit(i);
             if(last == i){
                 ans[i] = 1;
