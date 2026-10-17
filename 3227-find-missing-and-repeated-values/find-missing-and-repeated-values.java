@@ -4,23 +4,21 @@ class Solution {
         int ld = (int)Math.pow(n,2);
         int total = (ld * (ld + 1)) / 2;
         int[] ans = {-1,-1};
+        HashSet<Integer> hs = new HashSet<>();
         int sum = 0;
-        int[] ar = new int[n * n];
-        for(int i = 0;i < n*n;i++){
+        int tsum = 0;
+        for(int i = 0;i < n * n;i++){
             int row = i / n;
             int col = i % n;
-            ar[i] = grid[row][col];
-            sum += ar[i];
+            hs.add(grid[row][col]);
+            tsum += grid[row][col];
         }
-        Arrays.sort(ar);
-        for(int i = 1;i < n * n;i++){
-            if(ar[i] == ar[i - 1]){
-                ans[0] = ar[i];
-                break;
-            }
+        for(int i : hs){
+            sum += i;
         }
-        
-        ans[1] = Math.abs(total - (sum - ans[0]));
+        ans[0] = Math.abs(tsum - sum);
+        ans[1] = Math.abs(total - sum);
+
         return ans;
     }
 }
