@@ -9,7 +9,9 @@ class Solution {
         for(Map.Entry<Integer,Integer> entry : hm.entrySet()){
             if(entry.getValue() == 1){
                 ans = entry.getKey();
+                break;
             }
+
         }
         return ans;
     }
